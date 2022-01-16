@@ -1,16 +1,6 @@
 {
   "todos": [
     {
-      "title": "react",
-      "status": false,
-      "id": 1
-    },
-    {
-      "title": "react-read",
-      "status": false,
-      "id": 2
-    },
-    {
       "title": "react-read-me",
       "status": false,
       "id": 3
@@ -19,12 +9,6 @@
       "title": "vinay",
       "status": false,
       "id": 4
-    },
-    
-    {
-      "title": "cabage",
-      "status": false,
-      "id": 6
     }
   ]
 }

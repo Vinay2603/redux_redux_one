@@ -69,8 +69,22 @@ const getTodo =()=>{
           <Link to={`/todos/${el.id}`}><button>EDIT</button></Link>
           <button
             onClick={()=>{
-                console.log(deleteTodo(el.id))
-                dispatch(deleteTodo(el.id))}}
+                // console.log(deleteTodo(el.id))
+                // dispatch(deleteTodo(el.id))
+                axios.delete(`http://localhost:3001/todos/${el.id}`)
+                .then(function (response) {
+                  // handle success
+                  console.log(response.data);
+                //  dispatch(getTodoSuccess(response.data))
+                getTodo()
+                })
+                .catch(function (error) {
+                  // handle error
+                  console.log(error);
+                 // dispatch(getTodoError(error))
+                })
+              
+              }}
           >DELETE</button>
        </div>)}
     </div>

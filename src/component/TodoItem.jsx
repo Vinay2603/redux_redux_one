@@ -38,15 +38,40 @@ useEffect(()=>{
           <h1>todo Item page: {id} </h1>
             <h2>TODO : {user?.title }</h2>
             <h3>STATUS : {user?.status ? "true" : "false"}</h3>
-          
+            <button
+            onClick={()=>{
+              
+                axios.delete(`http://localhost:3001/todos/${id}`)
+                .then(function (response) {
+                  // handle success
+                  console.log(response.data);
+                //  dispatch(getTodoSuccess(response.data))
+                navigate("/")
+                })
+                .catch(function (error) {
+                  // handle error
+                  console.log(error);
+                 // dispatch(getTodoError(error))
+                })
+              
+              }}
+          >DELETE</button>
           <button
-            onClick={()=>
-            //    { console.log(toggleTodo(user.id))
-            //     dispatch(toggleTodo(user.id))
-            //    // getSingleTodo()
-            // }
-          {user.status = !user?.status}
-            }
+            onClick={()=>{
+                axios.patch(`http://localhost:3001/todos/${id}`, {
+                title: user?.title,
+                status: !user?.status
+              })
+              .then(function (response) {
+                console.log(response.data);
+                getSingleTodo()
+              })
+              .catch(function (error) {
+                console.log(error);
+
+               
+              });
+            }}
           >TOGGLE</button>
 
            <Link to={"/"}><button>back</button></Link> 
