@@ -2,7 +2,7 @@
   "todos": [
     {
       "title": "react-read-me",
-      "status": false,
+      "status": true,
       "id": 3
     },
     {
