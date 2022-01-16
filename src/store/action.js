@@ -5,7 +5,10 @@ import {ADD_TODO_LOADING,
     ADD_TODO_ERROR,
     GET_TODO_LOADING,
     GET_TODO_SUCCESS,
-    GET_TODO_ERROR} from "./actionType";
+    GET_TODO_ERROR,
+    DELETE_TODO ,
+    TOGGLE_TODO
+} from "./actionType";
 
 
 
@@ -50,7 +53,25 @@ const getTodoError =(err)=>{
     }
 }
 
+const deleteTodo =(id)=>{
+    return{
+        type: DELETE_TODO,
+         payload:id
+    }
+}
 
+const toggleTodo =(id)=>{
+    return{
+        type: TOGGLE_TODO,
+         payload:id
+    }
+}
 
-
-export {addTodoError,addTodoSuccess, addTodoLoading , getTodoLoading , getTodoSuccess , getTodoError}
+export {addTodoError,
+    addTodoSuccess, 
+    addTodoLoading ,
+     getTodoLoading ,
+      getTodoSuccess ,
+       getTodoError ,
+       deleteTodo , 
+       toggleTodo  }

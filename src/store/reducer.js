@@ -3,7 +3,10 @@ import { ADD_TODO_LOADING,
     ADD_TODO_ERROR,
     GET_TODO_LOADING,
     GET_TODO_SUCCESS,
-    GET_TODO_ERROR } from "./actionType";
+    GET_TODO_ERROR,
+    DELETE_TODO,
+    TOGGLE_TODO
+} from "./actionType";
 
 export const reducer =(state = { loading:false, todos:[] ,error:false } ,{type,payload})=>{
 
@@ -45,7 +48,17 @@ export const reducer =(state = { loading:false, todos:[] ,error:false } ,{type,p
                      loading:false
      
                      }    
-
+        case DELETE_TODO:
+            return{
+                ...state,
+                todos : [...state.todos].filter((el)=> el.id !== payload)
+            }
+            
+        case TOGGLE_TODO:
+            return{
+                 ...state,
+                todos : [...state.todos].map((el)=> el.id === payload ? {...el, status : !el.status }: el)
+            }   
 
         default :
           return state   

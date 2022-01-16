@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
 import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
-import { addTodoError, addTodoLoading, addTodoSuccess, getTodoError, getTodoLoading, getTodoSuccess } from "../store/action"
+import { addTodoError, addTodoLoading, addTodoSuccess, getTodoError, getTodoLoading, getTodoSuccess ,deleteTodo} from "../store/action"
 
 export const Todos=()=>{
     const [text,setText] = useState("")
@@ -67,7 +67,11 @@ const getTodo =()=>{
          <div>{el.title}</div>
          <div> status:{ !el.status ? "false" :"true"}</div>
           <Link to={`/todos/${el.id}`}><button>EDIT</button></Link>
-       
+          <button
+            onClick={()=>{
+                console.log(deleteTodo(el.id))
+                dispatch(deleteTodo(el.id))}}
+          >DELETE</button>
        </div>)}
     </div>
 }
