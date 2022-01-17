@@ -29,7 +29,6 @@ const getSingleTodo =()=>{
 }
   console.log("user",user)
 useEffect(()=>{
-    console.log("gaksjcgsk")
     getSingleTodo()
 },[])
     
@@ -45,13 +44,11 @@ useEffect(()=>{
                 .then(function (response) {
                   // handle success
                   console.log(response.data);
-                //  dispatch(getTodoSuccess(response.data))
                 navigate("/")
                 })
                 .catch(function (error) {
                   // handle error
                   console.log(error);
-                 // dispatch(getTodoError(error))
                 })
               
               }}
